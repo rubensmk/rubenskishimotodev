@@ -1,0 +1,52 @@
+.header{
+    height: 5rem;
+    padding: 0 6rem;
+
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.logo{
+    h2{
+        font-size:1.2rem;
+    }
+}
+
+.menu{
+    display:flex;
+    align-items: center;
+
+    ul{
+        display:flex;
+        justify-content: space-between;
+
+        list-style: none;
+        width:20rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-right: 1.2rem;
+
+        li{
+            color:var(--secondary);
+        }
+
+        a{
+            color:var(--text);
+        }
+    }
+
+    button{
+        height:2rem;
+        width:6.4rem;
+
+        background-color: var(--secondary);
+        color: var(--text);
+        font-size: 1rem;
+        font-weight: 500;
+
+        border: 2px solid var(--secondary);
+        border-radius:5px;
+    }
+}

@@ -5,9 +5,12 @@
 }
 
 :root{
-    --white: #F8F1F1;
-    --dark-blue:#003F5C;
-    --salmon: #FB5B5A;
+    --primary: #0F222D;
+    --secondary:#BA3521;
+    --btn-background:#2A3C47;
+    --btn-text:#FFF5D0;
+    --text: #EBE7D9;
+    
 }
 
 @media (max-width: 1080px){
@@ -23,15 +26,15 @@
 }
 
 body{
-    background: var(--dark-blue);
-    color: var(--white);
+    background: var(--primary);
+    color: var(--text);
 }
 
 body, input, textarea, select, button{
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
-button{
+button, a{
     cursor: pointer;
 }
 
