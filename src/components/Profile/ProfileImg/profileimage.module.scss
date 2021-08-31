@@ -1,0 +1,22 @@
+.imageContent{
+    display:flex;
+    transition: 0.7s ease;
+
+    &:hover{
+        transform: translateX(-40px);
+    }
+    .image{
+        border-radius: 3px;
+
+        
+    }
+    .frame{
+    position: relative;
+    left:250px;
+    top:30px;
+    width: 228px;
+    height:244px;
+    border: 2px solid var(--secondary);
+    border-radius: 3px;
+    }
+}

@@ -1,19 +1,56 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 import styles from './header.module.scss';
+import { ActiveLink } from '../ActiveLink';
+import { useRouter } from 'next/router';
 
 export function Header() {
+    const { asPath } = useRouter();
+
+    const isHomePage = asPath === '/';
+
     return (
         <header className={styles.header}>
             <div className={styles.logo}>
-                <h2>{`{ rubenskishimoto.dev }`}</h2>
+
+                <div className={styles.logo}>
+                    <Link href="/">
+                        <a >
+                            {`{ rubenskishimoto.dev }`}
+                        </a>
+                    </Link>
+                    {isHomePage && (
+                        <p>
+                            Você já está na Home 😄
+                        </p>
+                    )}
+                </div>
+
+
             </div>
             <nav className={styles.menu}>
                 <ul>
-                    <li>01. <a>Perfil</a></li>
-                    <li>02. <a>Projetos</a></li>
-                    <li>03. <a>Contato</a></li>
+                    <li>01.
+                        <ActiveLink href="/" activeClassName={styles.active}>
+                            <a>Perfil</a>
+                        </ActiveLink>
+                    </li>
+                    <li>02.
+                        <ActiveLink href="/projects" activeClassName={styles.active}>
+                            <a>Projetos</a>
+                        </ActiveLink>
+                    </li>
+                    <li>03.
+                        <ActiveLink href="/contact" activeClassName={styles.active}>
+                            <a>Contato</a>
+                        </ActiveLink>
+                    </li>
                 </ul>
-                <button>Currículo</button>
+                <button>
+                    <a href="https://drive.google.com/file/d/1HaYG8lPbcVAe5cP077R_aPsAyxh1YGOj/view" target="_blank" rel="noreferrer">
+                        Currículo
+                    </a>
+                </button>
             </nav>
         </header>
     )

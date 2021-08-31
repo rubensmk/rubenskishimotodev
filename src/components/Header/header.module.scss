@@ -9,8 +9,31 @@
 }
 
 .logo{
-    h2{
+    a{
         font-size:1.2rem;
+        font-weight: 600;
+    }
+
+    p{
+        left:200px;
+        top:60px;
+        position: absolute;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        width: 200px;
+        text-align:center;
+        background-color:var(--text);
+        color: var(--btn-background);
+        border-radius: 11px;
+        opacity:0;
+    }
+    
+    &:hover{
+        p{
+            position:block;
+            opacity: 1;
+            transition: opacity 0.7s linear;
+        }
     }
 }
 
@@ -28,13 +51,25 @@
         font-weight: 400;
         margin-right: 1.2rem;
 
+        
         li{
             color:var(--secondary);
+            
+
         }
 
         a{
             color:var(--text);
+            padding-bottom: 0.1rem;
+            text-align: center;
+
+            &.active{
+                border-bottom: 2px solid var(--secondary);
+            }
+    
         }
+
+        
     }
 
     button{

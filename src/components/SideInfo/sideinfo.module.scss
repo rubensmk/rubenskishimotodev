@@ -1,0 +1,62 @@
+.social{
+    height: 100%;
+    .list{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height:11rem;
+        margin-bottom:1rem;
+    }
+
+    a{
+        display:flex;
+        justify-content: flex-start;
+        margin-bottom: 0.5rem;
+        svg{
+            transition: 0.4s ease;
+        }
+
+        
+        p{
+            left:90px;
+            position: absolute;
+            margin-left: 0.5rem;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            width: 160px;
+            text-align:center;
+            background-color:var(--text);
+            color: var(--btn-background);
+            border-radius: 11px;
+            opacity:0;
+        }
+        &:hover{
+
+            p{
+                position:block;
+                opacity: 1;
+                transition: opacity 0.7s linear;
+            }
+            svg{
+                transform: scale(1.4);
+                filter:brightness(1.5)
+            }
+        }
+    }
+}
+
+.email{
+    height: 100%;
+    a{
+        text-orientation: mixed;
+        writing-mode: vertical-lr;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.verticalLine{
+    margin-left: 0.5rem;
+    height: 18rem;
+    border-left: 3px solid var(--text);
+}

@@ -1,103 +1,31 @@
 .container{
     display: flex;
+    padding: 4rem 3rem;
     height: 100%;
     justify-content: space-between;
-
-    margin-top: 6rem;
+    align-items: center;
 }
 
-.social{
-    padding-left: 1.4rem;
-    height: 100%;
-    div{
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height:11rem;
-        margin-bottom:1rem;
-    }
-}
-
-.email{
-    padding-right: 1.4rem;
-    p{
-        text-orientation: mixed;
-        writing-mode: vertical-lr;
-        margin-bottom: 0.5rem;
-    }
-}
-
-.verticalLine{
-    margin-left: 0.5rem;
-    height: 18rem;
-    border-left: 3px solid var(--text);
-}
 
 .profile{
     width: 100%;
     display:flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 
-    .description{
-        width: 32rem;
-        font-weight: 400;
-        strong{
-            color: var(--secondary);
-        }
-        h1{
-            font-size: 2.25rem;
-            font-weight: 500;
-        }
-        h2{
-            font-size:1.6rem;
-            margin-bottom:1rem;
-        }
-        p{
-            font-size:1rem;
-            text-align: left;
-            line-height: 1.3rem;
-            a{
-                font-size:1rem;
-                color: var(--secondary)
-            }
-        }
-    }
-
-    .imageContent{
+    .info{
         display:flex;
-        .image{
-            border-radius: 3px;
-        }
-        .image:hover{
-            opacity: 1.2;
-        }
-        .frame{
-        position: relative;
-        left:240px;
-        top:20px;
-        width: 224px;
-        height:244px;
-        border: 2px solid var(--secondary);
-        border-radius: 3px;
-        }
+        flex-direction:row
     }
+    
 
     
 }
 
-.techs{
-    margin-top: 2rem;
-    gap:1rem;
+.navigateOptions{
     display:flex;
-    width: 100%;
-}
-
-.nextlogo{
-    background-color: var(--btn-background);
-    border-radius: 5px;
-}
-.logo{
-    background-color: var(--text);
-    border-radius: 5px;
+    width: 55%;
+    margin-top: 2rem;
+    justify-content: flex-start;
+    align-items: center;
 }
