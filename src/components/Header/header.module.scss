@@ -54,8 +54,10 @@
         
         li{
             color:var(--secondary);
-            
-
+            transition: 0.4 ease;
+            &:hover{
+                filter:brightness(1.2);
+            }
         }
 
         a{
@@ -76,12 +78,19 @@
         height:2rem;
         width:6.4rem;
 
-        background-color: var(--secondary);
+        background: linear-gradient(225deg, var(--secondary) 0%, #b31317 100%);
         color: var(--text);
         font-size: 1rem;
         font-weight: 500;
 
-        border: 2px solid var(--secondary);
         border-radius:5px;
+        border:0;
+
+        transition: 0.3s;
+
+        &:hover{
+            transform: translate(5px,-6px);
+            filter:brightness(1.1);
+        }
     }
 }
