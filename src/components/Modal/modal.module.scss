@@ -12,12 +12,12 @@
 }
 
 .container{
-    background: linear-gradient(45deg, var(--secondary) 0%, #b31317 100%);
+    background: linear-gradient(225deg, var(--btn-background) 0%, var(--primary) 100%);
     width: 100%;
-    max-width: 600px;
-    height: 320px;
+    max-width: 1100px;
+    height: 820px;
     padding: 2rem 3rem;
-    border-radius: 45px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     text-align: center;
     position: relative;
@@ -27,6 +27,9 @@
         justify-content: space-between;
         align-items: center;
 
+        svg{
+            cursor: pointer;
+        }
         div{
             display: flex;
             align-items: center;
@@ -34,10 +37,10 @@
 
             h1{
                 font-weight: 500;
-                color: var(--btn-text);
+                color: var(--text);
             }
             p{
-                color: var(--btn-text);
+                color: var(--text);
             }
         }
     }
@@ -51,26 +54,14 @@
         
         strong{
             margin-top:0.8rem;
-            color: var(--btn-text);
+            color: var(--text);
         }
-        p{
-            color: var(--btn-text);
+        .container section p{
+            color: var(--text);
         }
     }
 
-    footer{
+    .techs{
         display: flex;
-        justify-content:flex-end;
-        a{
-            width:130px;
-            padding: 0.4rem 0.2rem;
-            color: var(--primary);
-            display: flex;
-            justify-content:center;
-            align-items: center;
-            border-radius: 5px;
-            background: var(--btn-text);
-            font-weight: 500;
-        }
     }
 }

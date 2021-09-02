@@ -3,12 +3,16 @@ import { Header } from '../../components/Header';
 import React, { useState } from 'react';
 import styles from './projects.module.scss';
 import { Modal } from '../../components/Modal';
+import { IProject, ProjectCard } from '../../components/ProjectCard';
+import { projects } from '../../components/ProjectCard/projects';
 
 export default function Projects() {
     const [isOpenModal, setIsOpenModal] = useState(false);
+    const [modalInfo, setModalInfo] = useState({} as IProject);
 
 
-    const handleOpenModal = () => {
+    const handleOpenModal = (project: IProject) => {
+        setModalInfo(project);
         setIsOpenModal(true);
     }
 
@@ -21,31 +25,14 @@ export default function Projects() {
             <Header />
             <main className={styles.container}>
                 <section className={styles.content}>
-                    <div className={styles.card} onClick={handleOpenModal}>
-                        <h1>DS Deliver</h1>
-                        <img src="/images/dsdeliver.png" alt="Project" className={styles.cardImage} />
-                    </div>
-                    <div className={styles.card} onClick={handleOpenModal}>
-                        <h1>DS Deliver</h1>
-                        <img src="/images/dsdeliver.png" alt="Project" className={styles.cardImage} />
-                    </div>
-                    <div className={styles.card} onClick={handleOpenModal}>
-                        <h1>DS Deliver</h1>
-                        <img src="/images/dsdeliver.png" alt="Project" className={styles.cardImage} />
-                    </div>
-                    <div className={styles.card} onClick={handleOpenModal}>
-                        <h1>DS Deliver</h1>
-                        <img src="/images/dsdeliver.png" alt="Project" className={styles.cardImage} />
-                    </div>
-                    <div className={styles.card} onClick={handleOpenModal}>
-                        <h1>DS Deliver</h1>
-                        <img src="/images/dsdeliver.png" alt="Project" className={styles.cardImage} />
-                    </div>
+                    {projects.map(project => (
+                        <ProjectCard handleOpenModal={() => handleOpenModal(project)} project={project} key={project.id} />
+                    ))}
                 </section>
                 <a href="https://github.com/rubensmk?tab=repositories" target="_blank" rel="noreferrer" className={styles.button}>
                     Outros projetos
                 </a>
-                {isOpenModal && <Modal closeModal={handleCloseModal} />}
+                {isOpenModal && <Modal closeModal={handleCloseModal} modalInfo={modalInfo} />}
             </main>
 
         </>

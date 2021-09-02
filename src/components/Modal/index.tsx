@@ -1,37 +1,53 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from './modal.module.scss';
-import { CgCloseO } from 'react-icons/cg'
-import { RiGithubFill } from 'react-icons/ri'
+import { motion } from 'framer-motion';
+import { CgClose } from 'react-icons/cg'
+import { IProject } from '../ProjectCard';
+import { TechBadge } from '../TechBadge';
+import { Slider } from './Slider/Slider';
 
 interface ModalProps {
     closeModal: () => void;
+    modalInfo: IProject
 }
 
-export function Modal({ closeModal }: ModalProps) {
+export function Modal({ closeModal, modalInfo }: ModalProps) {
+    const cardAnimation = {
+        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+        hidden: { opacity: 0, x: -100, transition: { duration: 0.5 } },
+    }
 
+    const bgAnimation = {
+        visible: { opacity: 1, transition: { duration: 0.7 } },
+        hidden: { opacity: 0 },
+    }
     return (
-        <div className={styles.overlay} onClick={closeModal}>
-            <div className={styles.container}>
+        <motion.div className={styles.overlay}
+            initial="hidden"
+            animate="visible"
+            variants={bgAnimation}>
+            <motion.div className={styles.container}
+                initial="hidden"
+                animate="visible"
+                variants={cardAnimation}>
                 <header>
                     <div>
-                        <h1>DS Deliver</h1>
-                        <p>(rubensmk/ds-deliver)</p>
+                        <h1>{modalInfo.project_title}</h1>
                     </div>
-                    <CgCloseO size={26} color="#FFF5D0" onClick={closeModal} />
+                    <CgClose size={26} color="#EBE7D9" onClick={closeModal} />
                 </header>
                 <section>
                     <strong>Descrição</strong>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal. </p>
+                    <p>{modalInfo.description}</p>
                     <strong>Ferramentas</strong>
-                    <p>React, React Native, Springboot Java</p>
+                    <div className={styles.techs}>
+                        {modalInfo.techs.map(tech => (
+                            <TechBadge key={tech.name} data={tech} />
+                        ))}
+                    </div>
                 </section>
-                <footer>
-                    <a>
-                        Repositório
-                        <RiGithubFill size={26} color="#111111" />
-                    </a>
-                </footer>
-            </div>
-        </div>
+                <Slider images={modalInfo.images} />
+            </motion.div>
+        </motion.div>
     )
 }

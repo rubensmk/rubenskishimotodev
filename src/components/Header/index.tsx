@@ -21,7 +21,7 @@ export function Header() {
                     </Link>
                     {isHomePage && (
                         <p>
-                            Você já está na Home 😄
+                            Você já está na Home 😎
                         </p>
                     )}
                 </div>
