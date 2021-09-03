@@ -22,10 +22,6 @@ export function SocialMedia() {
                     <SiInstagram size={32} />
                     <p className="tooltip">@rubens.mkishimoto</p>
                 </a>
-                <a href="https://twitter.com/kishimotomk" target="_blank" rel="noreferrer">
-                    <SiTwitter size={32} />
-                    <p className="tooltip">@kishimotomk</p>
-                </a>
             </div>
             <div className={styles.verticalLine} />
         </aside>
