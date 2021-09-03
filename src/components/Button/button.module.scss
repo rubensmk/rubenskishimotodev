@@ -67,3 +67,15 @@
 .primaryButton{
     background:var(--btn-background);
 }
+
+@media(max-width:768px){
+  .container{
+    padding: 10px 30px;
+  }
+}
+
+@media(max-width:425px){
+  .container{
+    padding: 8px 28px;
+  }
+}

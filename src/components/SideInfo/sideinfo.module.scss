@@ -13,11 +13,15 @@
         display:flex;
         justify-content: flex-start;
         margin-bottom: 0.5rem;
+
         svg{
             transition: 0.4s ease;
         }
 
-        
+        svg{
+            width: 2rem;
+            height: 2rem;
+        }
         p{
             left:90px;
             position: absolute;
@@ -57,6 +61,66 @@
 
 .verticalLine{
     margin-left: 0.5rem;
-    height: 18rem;
+    height: 21rem;
     border-left: 3px solid var(--text);
+}
+
+@media(max-width:768px){
+    .social{
+        height: 100%;
+        .list{
+            height: 10rem;
+        }
+    
+        a{
+            svg{
+                width: 1.6rem;
+                height: 1.6rem;
+            }
+            p{
+                left:60px;
+            }
+        }
+    }
+    .email{
+        
+        a{
+            font-size: 0.9rem;
+        }
+    }
+    .verticalLine{
+        height: 18rem;
+        border-left: 2px solid var(--text);
+    }
+    
+}
+
+@media(max-width:425px){
+    .social{
+        height: 70%;
+        .list{
+            height: 10rem;
+        }
+    
+        a{
+            svg{
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+            p{
+                left:60px;
+            }
+        }
+    }
+    .email{
+        height: 70%;
+        a{
+            font-size: 0.7rem;
+        }
+    }
+    .verticalLine{
+        height: 15rem;
+        border-left: 2px solid var(--text);
+    }
+    
 }
