@@ -1,9 +1,10 @@
 import { Header } from '../../components/Header';
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../../../public/contactme.json';
+import animationData from '../../../public/mailAnimation.json';
 import styles from './contact.module.scss';
 import { SiLinkedin, SiGmail, SiWhatsapp, SiInstagram } from 'react-icons/si';
+import Head from 'next/head';
 
 const defaultOptions = {
     loop: true,
@@ -17,6 +18,9 @@ const defaultOptions = {
 export default function Contacts() {
     return (
         <>
+            <Head>
+                <title>{`rubskishimoto |  Contato `}</title>
+            </Head>
             <Header />
             <main className={styles.container}>
                 <div className={styles.image}>

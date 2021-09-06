@@ -4,7 +4,7 @@ import { ProfileImg } from '../components/Profile/ProfileImg';
 import { ProfileDescription } from '../components/Profile/ProfileDescription';
 import { SocialMedia } from '../components/SideInfo/SocialMedia';
 import { Email } from '../components/SideInfo/Email';
-
+import Head from 'next/head';
 import React from 'react';
 import styles from './home.module.scss';
 
@@ -12,6 +12,10 @@ import styles from './home.module.scss';
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>{`rubskishimoto |  Home `}</title>
+      </Head>
+
       <Header />
       <main className={styles.container}>
         <SocialMedia />

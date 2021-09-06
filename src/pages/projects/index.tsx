@@ -5,6 +5,7 @@ import styles from './projects.module.scss';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
 import { projects } from '../../components/ProjectCard/projects';
+import Head from 'next/head';
 
 export default function Projects() {
     const [isOpenModal, setIsOpenModal] = useState(false);
@@ -22,6 +23,9 @@ export default function Projects() {
 
     return (
         <>
+            <Head>
+                <title>{`rubskishimoto |  Projetos `}</title>
+            </Head>
             <Header />
             <main className={styles.container}>
                 <section className={styles.content}>
