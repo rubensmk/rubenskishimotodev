@@ -97,30 +97,41 @@
 
 @media(max-width:425px){
     .social{
-        height: 70%;
+        width: 100%;
+        padding-right: 2rem;
+        height: 2rem;
+        display: flex;
+        flex-direction:row-reverse;
         .list{
-            height: 10rem;
+            height: 100%;
+            flex-direction: row;
+            justify-content:space-between;
+            align-items:center;
+            gap:1.1rem;
         }
     
         a{
             svg{
-                width: 1.2rem;
-                height: 1.2rem;
+                width: 1.5rem;
+                height: 1.5rem;
             }
             p{
-                left:60px;
+                visibility: hidden;
+                
             }
         }
     }
     .email{
-        height: 70%;
+        height: 1rem;
         a{
-            font-size: 0.7rem;
+            font-size: 0.8rem;
+            writing-mode: horizontal-tb;
+            margin-bottom: 0.5rem;
         }
     }
     .verticalLine{
-        height: 15rem;
-        border-left: 2px solid var(--text);
+        height: 0;
+        border:0;
     }
     
 }

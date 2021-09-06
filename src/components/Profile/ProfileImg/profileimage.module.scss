@@ -29,7 +29,7 @@
         -webkit-transition: background-color 500ms ease-in;
         -ms-transition: background-color 500ms ease-in;
         transition: background-color 500ms ease-in;
-    }
+        }
     }
 }
 @media(max-width:1440px){
@@ -69,15 +69,18 @@
 @media(max-width:768px){
     .imageContent{
         .image{
-            width: 165px;
+            width: 180px;
             height:180px;
+            border-radius: 50%;
+            border: 2px solid var(--btn-text);
+
+            &:hover{
+                transform: translateY(-12px);
+                border-color:var(--secondary);
+            }
         }
         .frame{
-            position: absolute;
-            right: 78px;
-            top: 325px;
-            width: 165px;
-            height:180px;
+            visibility: hidden;
         }
     }
     
@@ -85,18 +88,9 @@
 
 @media(max-width:425px){
     .imageContent{
-        
         .image{
-            
-            width: 128px;
-            height:143px;
-        }
-        .frame{
-            position: absolute;
-            right: 127px;
-            top: 318px;
-            width: 125px;
-            height:140px;
+            width: 150px;
+            height:150px;
         }
     }
     

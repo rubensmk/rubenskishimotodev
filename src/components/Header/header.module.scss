@@ -1,5 +1,6 @@
 .header{
     height: 5rem;
+    width: 100%;
     padding: 0 6rem;
 
     display:flex;
@@ -148,28 +149,41 @@
 
 @media(max-width:425px){
     .header{
-        padding: 0 1rem;
+        padding: 0 2rem;
         }
 
     .logo{
         a{
-            font-size:0.7rem;
+            font-size:0.85rem;
         }
     }
 
     .menu{
         ul{
-            font-size: 0.7rem;
-            margin-right: 0.7rem;
-            width: 11.5rem;
+            display: none;
         }
 
         button{
-            height:1.5rem;
-            width:5rem;
+            height:2rem;
+            width:6rem;
 
-            font-size: 0.8rem;
-            font-weight: 400;
+            font-size: 0.85rem;
         }
     }     
 }
+
+@media(max-width:375px){
+    .header{
+        padding: 0 1rem;
+    }
+}
+
+
+@media(max-width:320px){
+    .header{
+        margin-left: 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+
