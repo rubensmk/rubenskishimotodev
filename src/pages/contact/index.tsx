@@ -19,8 +19,8 @@ export default function Contacts() {
         <>
             <Header />
             <main className={styles.container}>
-                <div>
-                    <Lottie options={defaultOptions} height={600} width={600} />
+                <div className={styles.image}>
+                    <Lottie options={defaultOptions} />
                 </div>
                 <div className={styles.verticalLine} />
                 <section className={styles.contact}>
