@@ -30,7 +30,9 @@ export function Slider({ images }) {
                 <FiArrowLeft size={34} onClick={handlePrevImg} />
             )}
             <Content key={String(new Date())}>
-                <motion.img src={img[current]} alt="image" width="900" height="460"
+                <motion.img src={img[current]} alt="image"
+                    width="100%"
+                    height="100%"
                     initial="hidden"
                     animate="visible"
                     variants={sliderAnimation}

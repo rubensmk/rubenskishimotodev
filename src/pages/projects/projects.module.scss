@@ -36,6 +36,23 @@
 }
 
 
-@media (max-width:1024px){
-    
+@media (max-width:425px){
+    .container{
+        height: 90vh;
+    }
+
+    .content{
+        row-gap: 3.2rem;
+    }
+}
+
+@media (max-width:320px){
+    .container{
+        margin-left: 1.5rem;
+        height: 90vh;
+    }
+
+    .content{
+        row-gap: 3.8rem;
+    }
 }

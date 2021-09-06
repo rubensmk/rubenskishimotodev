@@ -34,3 +34,18 @@
        cursor: pointer;
     }
 }
+
+
+@media(max-width:425px){
+    .card{
+        width: 280px;
+        height: 164px;
+    }
+}
+
+@media(max-width:320px){
+    .card{
+        width: 240px;
+        height: 124px;
+    }
+}

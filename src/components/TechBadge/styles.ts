@@ -24,4 +24,13 @@ export const Container = styled.div<ContainerProps>`
         font-size: 0.9rem;
         font-weight: 600;
     }
+
+    @media(max-width:1440px){
+        width: 144px;
+    }
+
+    @media(max-width:425px){
+        width: 160px;
+        height: 30px;
+    }
 `;
