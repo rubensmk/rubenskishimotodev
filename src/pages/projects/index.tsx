@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from '../../components/Header';
 import React, { useState } from 'react';
-import * as S from './styles';
+import * as S from '../../styles/pages/projectsStyles';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
 import Head from 'next/head';
