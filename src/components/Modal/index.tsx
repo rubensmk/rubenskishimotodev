@@ -21,6 +21,7 @@ export function Modal({ closeModal, modalInfo }: ModalProps) {
         visible: { opacity: 1, transition: { duration: 0.7 } },
         hidden: { opacity: 0 },
     }
+    console.log(modalInfo)
     return (
         <motion.div className={styles.overlay}
             initial="hidden"
@@ -32,7 +33,7 @@ export function Modal({ closeModal, modalInfo }: ModalProps) {
                 variants={cardAnimation}>
                 <header>
                     <div>
-                        <h1>{modalInfo.project_title}</h1>
+                        <h1>{modalInfo.title}</h1>
                     </div>
                     <CgClose size={26} color="#EBE7D9" onClick={closeModal} />
                 </header>

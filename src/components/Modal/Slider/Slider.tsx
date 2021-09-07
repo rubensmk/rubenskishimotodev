@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import { Container, Content } from './styles';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+
 
 export function Slider({ images }) {
     const [img, setImg] = useState<string[]>(images);

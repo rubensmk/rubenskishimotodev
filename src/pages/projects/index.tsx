@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import styles from './projects.module.scss';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
-import { projects } from '../../components/ProjectCard/projects';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import { getProjects } from '../../services/api';
 
-export default function Projects() {
+export default function Projects({ allProjects }) {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [modalInfo, setModalInfo] = useState({} as IProject);
 
@@ -29,7 +30,7 @@ export default function Projects() {
             <Header />
             <main className={styles.container}>
                 <section className={styles.content}>
-                    {projects.map(project => (
+                    {allProjects.map(project => (
                         <ProjectCard handleOpenModal={() => handleOpenModal(project)} project={project} key={project.id} />
                     ))}
                 </section>
@@ -41,4 +42,15 @@ export default function Projects() {
 
         </>
     )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    const allProjects = await getProjects();
+
+    return {
+        props: {
+            allProjects
+        }
+    }
+
 }

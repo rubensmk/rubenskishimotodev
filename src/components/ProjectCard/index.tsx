@@ -11,7 +11,7 @@ export type ITech = {
 
 export type IProject = {
     id: number;
-    project_title: string;
+    title: string;
     description: string;
     repo_url: string[];
     techs: ITech[];
@@ -27,7 +27,7 @@ interface ProjectCardProps {
 export function ProjectCard({ handleOpenModal, project }: ProjectCardProps) {
     return (
         <div className={styles.card} onClick={() => handleOpenModal(project)}>
-            <h1>{project.project_title}</h1>
+            <h1>{project.title}</h1>
             <img src={project.thumbnail} alt="Project" className={styles.cardImage} />
         </div>
     )
