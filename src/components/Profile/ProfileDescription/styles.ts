@@ -1,6 +1,9 @@
-.description{
+import styled from 'styled-components';
+
+export const Container = styled.div`
     width: 34rem;
     font-weight: 400;
+
     strong{
         color: var(--secondary);
     }
@@ -20,10 +23,10 @@
             font-style: italic;
         }
     }
-}
-@media(max-width:1440px){
-    .description{
+
+    @media(max-width:1440px){
         width: 32rem;
+
         h1{
             font-size:1.8rem;
         }
@@ -31,43 +34,43 @@
             font-size: 1.6rem;
         }
     }
-}
 
-@media(max-width:1024px){
-    .description{
+    @media(max-width:1024px){
         width: 30rem;
+
         h1{
             font-size:1.75rem;
         }
         h2{
             font-size: 1.4rem;
         }
+        
     }
-}
 
-@media(max-width:768px){
-    .description{
-        width: 25rem;
-        h1{
-            font-size:1.5rem;
-        }
-        h2{
-            font-size: 1.2rem;
-        }
-        p{
-            font-size:0.9rem;
-            text-align: left;
-            line-height: 1.2rem;
-            a{
-                font-style: italic;
-            }
-        }
+    @media(max-width:768px){
+            width: 25rem;
+
+            h1{
+                font-size:1.5rem;
+                }
+            h2{
+                font-size: 1.2rem;
+                }
+            p{
+                font-size:0.9rem;
+                text-align: left;
+                line-height: 1.2rem;
+                a{
+                    font-style: italic;
+                    }
+                }
     }
-}
+    
+    
 
-@media(max-width:425px){
-    .description{
+    @media(max-width:425px){
         width: 100%;
+
         strong{
             font-size: 1rem;
         }
@@ -84,4 +87,5 @@
             }
         }
     }
-}
+
+`;

@@ -1,19 +1,18 @@
-import React, { ReactNode, ReactElement } from 'react';
-import Link from 'next/link';
-import styles from './button.module.scss';
+import React, { ReactNode } from 'react';
+import * as S from './styles';
 
 interface ButtonProps {
     children: ReactNode;
-    color?: 'secondary';
+    color?: 'gray';
     route: string;
 }
 
 export function Button({ children, color, route }: ButtonProps) {
     return (
-        <Link href={route} passHref>
-            <div className={`${styles.container} ${color === 'secondary' ? '' : styles.primaryButton}`}>
-                <strong className={styles.title}>{children}</strong>
-            </div>
-        </Link>
+        <S.Container href={route} passHref>
+            <S.Content color={color}>
+                <S.Title>{children}</S.Title>
+            </S.Content>
+        </S.Container>
     )
 }

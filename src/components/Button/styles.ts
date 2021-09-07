@@ -1,11 +1,22 @@
-.container{
-    margin-right:1.5rem;
+import styled, { css } from 'styled-components';
+import Link from 'next/link';
+
+interface ContentProps {
+    color?: string;
+}
+
+export const Container = styled(Link)``;
+
+export const Content = styled.div<ContentProps>`
+     margin-right:1.5rem;
     display: inline-block;
     padding: 12px 32px;
     border-radius: 3px;
     -webkit-transform: skew(-10deg);
     transform: skew(-10deg);
-    background: linear-gradient(225deg, var(--secondary) 0%, #b31317 100%);
+
+    background: ${props => props.color === 'gray' ? css`var(--btn-background)` : css`linear-gradient(225deg, var(--secondary) 0%, #b31317 100%)`};
+
     position: relative;
 
     &::after {
@@ -52,30 +63,26 @@
       &:hover::before {
         opacity: 1;
       }
-    strong{
-        display: flex;
-        height: 100%;
-        justify-content:center;
-        align-items: center;
 
-        font-weight:500;
-        font-size:1rem;
-        text-transform: uppercase;
-    }
-}
+      @media(max-width:768px){
+        padding: 10px 30px;
+      }
 
-.primaryButton{
-    background:var(--btn-background);
-}
+      @media(max-width:425px){
+        padding: 8px 28px;
+      }
 
-@media(max-width:768px){
-  .container{
-    padding: 10px 30px;
-  }
-}
+      
+`;
 
-@media(max-width:425px){
-  .container{
-    padding: 8px 28px;
-  }
-}
+export const Title = styled.strong`
+    display: flex;
+    height: 100%;
+    justify-content:center;
+    align-items: center;
+
+    font-weight:500;
+    font-size:1rem;
+    text-transform: uppercase;
+    
+`;

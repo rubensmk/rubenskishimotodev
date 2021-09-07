@@ -1,16 +1,33 @@
+import styled from 'styled-components';
 
-.container{
+export const Container = styled.main`
     height: 100%;
-}
 
-.content{
+    @media (max-width:320px){
+        margin-left: 1.5rem;
+    }
+`;
+
+
+export const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     margin-top: 6rem;
     margin-bottom:4rem;
-    section{
+
+    @media (max-width:425px){
+        margin-top: 2rem; 
+    }
+
+    @media (max-width:320px){
+        gap: 3.8rem;
+    }
+`;
+
+
+export const Projects = styled.div`
         display: flex;
         height: 100%;
         width: 100%;
@@ -19,11 +36,17 @@
         align-items: center;
         row-gap: 2rem;
         column-gap: 1rem;
-    }
-    
-}
 
-.button{
+    @media(max-width:425px){
+          row-gap: 4rem;
+    }
+`;
+
+export const OtherButton = styled.a.attrs({
+    href: 'https://github.com/rubensmk',
+    target: '_blank',
+    rel: 'noreferrer'
+})`
     display: block;
     width:12rem;
     text-align: center;
@@ -35,32 +58,10 @@
     transform: skew(-10deg);
     background: linear-gradient(225deg, var(--secondary) 0%, #b31317 100%);
 
-    transition:all 0.4s ease;
+    transition:all 0.6s ease;
     
     &:hover{
         -webkit-filter: brightness(1.4);
         filter:brightness(1.4)
     }
-}
-
-
-@media (max-width:425px){
-  
-    .content{
-        margin-top: 2rem;
-        section{
-            row-gap: 4rem;
-        }
-        
-    }
-}
-
-@media (max-width:320px){
-    .container{
-        margin-left: 1.5rem;
-    }
-
-    .content{
-        gap: 3.8rem;
-    }
-}
+`;

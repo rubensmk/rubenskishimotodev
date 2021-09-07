@@ -25,8 +25,8 @@ export default function Home() {
             <ProfileImg />
           </div>
           <div className={styles.navigateOptions}>
-            <Button color="secondary" route="/contact">Contato</Button>
-            <Button route="/projects">Projetos</Button>
+            <Button route="/contact">Contato</Button>
+            <Button route="/projects" color="gray">Projetos</Button>
           </div>
         </section>
         <Email />

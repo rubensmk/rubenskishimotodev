@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from '../../components/Header';
 import React, { useState } from 'react';
-import styles from './projects.module.scss';
+import * as S from './styles';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
 import Head from 'next/head';
@@ -23,25 +23,26 @@ export default function Projects({ allProjects }) {
     }
 
     return (
-        <main className={styles.container}>
+        <S.Container>
+
             <Head>
                 <title>{`rubskishimoto |  Projetos `}</title>
             </Head>
+
             <Header />
-            <main className={styles.content}>
-                <section>
+            <S.Content>
+                <S.Projects>
                     {allProjects.map(project => (
                         <ProjectCard handleOpenModal={() => handleOpenModal(project)} project={project} key={project.id} />
                     ))}
 
-                </section>
-                <a href="https://github.com/rubensmk?tab=repositories" target="_blank" rel="noreferrer" className={styles.button}>
-                    Outros projetos
-                </a>
+                </S.Projects>
+                <S.OtherButton>
+                    Outros Projetos
+                </S.OtherButton>
                 {isOpenModal && <Modal closeModal={handleCloseModal} modalInfo={modalInfo} />}
-            </main>
-
-        </main>
+            </S.Content>
+        </S.Container>
     )
 }
 
@@ -51,8 +52,8 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
             allProjects
-        }
-        // revalidate: 60 * 60 * 24 //24h
+        },
+        revalidate: 60 * 60 * 24 //24h
     }
 
 }

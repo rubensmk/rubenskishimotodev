@@ -21,7 +21,6 @@ export function Modal({ closeModal, modalInfo }: ModalProps) {
         visible: { opacity: 1, transition: { duration: 0.7 } },
         hidden: { opacity: 0 },
     }
-    console.log(modalInfo)
     return (
         <motion.div className={styles.overlay}
             initial="hidden"

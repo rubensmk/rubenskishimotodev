@@ -26,7 +26,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ handleOpenModal, project }: ProjectCardProps) {
     return (
-        <div className={styles.card} onClick={() => handleOpenModal(project)}>
+        <div key={styles.id} className={styles.card} onClick={() => handleOpenModal(project)}>
             <h1>{project.title}</h1>
             <img src={project.thumbnail} alt="Project" className={styles.cardImage} />
         </div>

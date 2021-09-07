@@ -1,8 +1,8 @@
-import styles from './profiledescription.module.scss';
+import * as S from './styles'
 
 export function ProfileDescription() {
     return (
-        <div className={styles.description}>
+        <S.Container>
             <strong>Olá, meu nome  é</strong>
             <h1>Rubens Mititaka Kishimoto</h1>
             <h2>Desenvolvedor Full-Stack</h2>
@@ -12,6 +12,6 @@ export function ProfileDescription() {
                 como <strong>ReactJS, NextJS e React Native.</strong> Conhecimentos de backend utilizando frameworks Node.js como <strong>Express</strong> e <strong>AdonisJS</strong>,
                 trabalhando em conjunto com integrações com bancos de dados e diferentes serviços.
             </p>
-        </div>
+        </S.Container>
     )
 }
