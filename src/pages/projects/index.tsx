@@ -23,16 +23,17 @@ export default function Projects({ allProjects }) {
     }
 
     return (
-        <>
+        <main className={styles.container}>
             <Head>
                 <title>{`rubskishimoto |  Projetos `}</title>
             </Head>
             <Header />
-            <main className={styles.container}>
-                <section className={styles.content}>
+            <main className={styles.content}>
+                <section>
                     {allProjects.map(project => (
                         <ProjectCard handleOpenModal={() => handleOpenModal(project)} project={project} key={project.id} />
                     ))}
+
                 </section>
                 <a href="https://github.com/rubensmk?tab=repositories" target="_blank" rel="noreferrer" className={styles.button}>
                     Outros projetos
@@ -40,7 +41,7 @@ export default function Projects({ allProjects }) {
                 {isOpenModal && <Modal closeModal={handleCloseModal} modalInfo={modalInfo} />}
             </main>
 
-        </>
+        </main>
     )
 }
 
