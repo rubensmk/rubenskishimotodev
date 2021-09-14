@@ -30,17 +30,17 @@ export function Header() {
             </div>
             <nav className={styles.menu}>
                 <ul>
-                    <li>01.
+                    <li>
                         <ActiveLink href="/" activeClassName={styles.active}>
                             <a>Perfil</a>
                         </ActiveLink>
                     </li>
-                    <li>02.
+                    <li>
                         <ActiveLink href="/projects" activeClassName={styles.active}>
                             <a>Projetos</a>
                         </ActiveLink>
                     </li>
-                    <li>03.
+                    <li>
                         <ActiveLink href="/contact" activeClassName={styles.active}>
                             <a>Contato</a>
                         </ActiveLink>
