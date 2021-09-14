@@ -1,4 +1,6 @@
-.card{
+import styled from 'styled-components';
+
+export const Card = styled.div`
     width: 340px;
     height: 224px;
     background: rgba(42, 60, 71, 0.95);
@@ -9,7 +11,24 @@
     align-items: center;
     transition: 0.7s ease;
 
-    h1{
+    &:hover{
+       transform: translateY(6px);
+       cursor: pointer;
+    }
+
+    @media(max-width:425px){
+        width: 280px;
+        height: 164px;
+    }
+
+    @media(max-width:320px){
+        width: 240px;
+        height: 124px;
+    }
+
+`;
+
+export const CardTitle = styled.h1`
         color:var(--text);
         background: transparent;
 
@@ -20,32 +39,10 @@
         visibility:visible;
         bottom:18px;
         text-shadow: 1px -5px 11px var(--primary);
-        
-    }
+`;
 
-    .cardImage{
+export const CardImage = styled.img`
         border-radius: 5px;
         width: 100%;
         height: 100%;
-    }
-
-    &:hover{
-       transform: translateY(6px);
-       cursor: pointer;
-    }
-}
-
-
-@media(max-width:425px){
-    .card{
-        width: 280px;
-        height: 164px;
-    }
-}
-
-@media(max-width:320px){
-    .card{
-        width: 240px;
-        height: 124px;
-    }
-}
+`;
