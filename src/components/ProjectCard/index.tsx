@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import * as S from './styles';
 
-import styles from './projectcard.module.scss';
 
 export type ITech = {
     name: string;
@@ -26,9 +26,9 @@ interface ProjectCardProps {
 
 export function ProjectCard({ handleOpenModal, project }: ProjectCardProps) {
     return (
-        <div key={styles.id} className={styles.card} onClick={() => handleOpenModal(project)}>
-            <h1>{project.title}</h1>
-            <img src={project.thumbnail} alt="Project" className={styles.cardImage} />
-        </div>
+        <S.Card key={project.id} onClick={() => handleOpenModal(project)}>
+            <S.CardTitle>{project.title}</S.CardTitle>
+            <S.CardImage src={project.thumbnail} alt="Project" />
+        </S.Card>
     )
 }
