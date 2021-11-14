@@ -47,7 +47,7 @@ export function Header() {
                     </li>
                 </ul>
                 <button>
-                    <a href="https://drive.google.com/file/d/1HaYG8lPbcVAe5cP077R_aPsAyxh1YGOj/view" target="_blank" rel="noreferrer">
+                    <a href="https://drive.google.com/file/d/1QeOOVON96ygeMiELfTzj9JpeSZkT5DZ_/view" target="_blank" rel="noreferrer">
                         Currículo
                     </a>
                 </button>
