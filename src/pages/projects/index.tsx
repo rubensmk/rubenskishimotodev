@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from '../../components/Header';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from '../../styles/pages/projectsStyles';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
@@ -8,9 +8,10 @@ import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import { getProjects } from '../../services/api';
 
-export default function Projects({ allProjects }) {
+export default function Projects() {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [modalInfo, setModalInfo] = useState({} as IProject);
+    const [allProjects, setAllProjects] = useState<IProject[]>([]);
 
 
     const handleOpenModal = (project: IProject) => {
@@ -22,6 +23,15 @@ export default function Projects({ allProjects }) {
         setIsOpenModal(false);
     }
 
+    useEffect(() => {
+        async function fetchProjects() {
+            const data = await getProjects();
+            setAllProjects(data); 
+        }
+
+        fetchProjects();
+    }, []);
+
     return (
         <S.Container>
 
@@ -32,10 +42,10 @@ export default function Projects({ allProjects }) {
             <Header />
             <S.Content>
                 <S.Projects>
-                    {allProjects.map(project => (
+                    {
+                    allProjects.map(project => (
                         <ProjectCard handleOpenModal={() => handleOpenModal(project)} project={project} key={project.id} />
                     ))}
-
                 </S.Projects>
                 <S.OtherButton>
                     Outros Projetos
@@ -53,7 +63,7 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             allProjects
         },
-        revalidate: 60 * 60 * 24 //24h
+        revalidate: 60//24h
     }
 
 }
