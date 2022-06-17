@@ -13,6 +13,8 @@ const techBadgeColor = {
     "NodeJS": ["#3d3d3d","#FFFFFF"],
     "Docker": ["#49F7A3","#423F3E"],
     "PostgreSQL": ["#243036","#48CEF6"],
+    "Springboot":["#49F7A3","#423F3E"],
+    "Java":["#f5f5f5","#EC5F5F"]
 }
 
 export function TechBadge({ data }: TechBadgeProps) {
