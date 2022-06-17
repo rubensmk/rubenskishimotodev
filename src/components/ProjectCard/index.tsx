@@ -3,20 +3,27 @@ import * as S from './styles';
 
 
 export type ITech = {
-    name: string;
-    color: string;
-    text_color: string;
-    icon: string;
+    techName: string;
+    techIconUrl: string;
 }
 
+export type IRepo = {
+    repoUrl: string;
+}
+
+export type IProjectImage = {
+    projectImageUrl: string;
+}
+
+
 export type IProject = {
-    id: number;
-    title: string;
-    description: string;
-    repo_url: string[];
-    techs: ITech[];
+    id: string;
+    projectName: string;
     thumbnail: string;
-    images: string[];
+    description: string;
+    techs: ITech[];
+    repos:IRepo[]
+    projectImages: IProjectImage[];
 }
 
 interface ProjectCardProps {
@@ -27,7 +34,7 @@ interface ProjectCardProps {
 export function ProjectCard({ handleOpenModal, project }: ProjectCardProps) {
     return (
         <S.Card key={project.id} onClick={() => handleOpenModal(project)}>
-            <S.CardTitle>{project.title}</S.CardTitle>
+            <S.CardTitle>{project?.projectName}</S.CardTitle>
             <S.CardImage src={project.thumbnail} alt="Project" />
         </S.Card>
     )

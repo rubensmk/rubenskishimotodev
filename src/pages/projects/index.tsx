@@ -1,17 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from '../../components/Header';
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import * as S from '../../styles/pages/projectsStyles';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
-import { getProjects } from '../../services/api';
+import { client } from '../../services/prismic';
+import * as prismic from '@prismicio/client';
+import { RichText } from 'prismic-dom';
 
-export default function Projects() {
+
+export default function Projects({ projects }) {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [modalInfo, setModalInfo] = useState({} as IProject);
-    const [allProjects, setAllProjects] = useState<IProject[]>([]);
 
 
     const handleOpenModal = (project: IProject) => {
@@ -22,15 +24,6 @@ export default function Projects() {
     const handleCloseModal = () => {
         setIsOpenModal(false);
     }
-
-    useEffect(() => {
-        async function fetchProjects() {
-            const data = await getProjects();
-            setAllProjects(data); 
-        }
-
-        fetchProjects();
-    }, []);
 
     return (
         <S.Container>
@@ -43,7 +36,7 @@ export default function Projects() {
             <S.Content>
                 <S.Projects>
                     {
-                    allProjects.map(project => (
+                    projects?.map(project => (
                         <ProjectCard handleOpenModal={() => handleOpenModal(project)} project={project} key={project.id} />
                     ))}
                 </S.Projects>
@@ -57,13 +50,44 @@ export default function Projects() {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const allProjects = await getProjects();
+    const allProjects = await client.get({predicates: prismic.predicate.at('document.type', 'projects')});
+    
+    const projects = allProjects.results.map(project =>{
+        const techs = project.data.techs.map(tech => {
+            return {
+                techIconUrl:tech?.tech_icon?.url,
+                techName:RichText.asText(tech?.tech_name)
+            }
+        } );
+
+        const repos = project?.data?.repo_url?.map(repo => {
+            return {
+                repoUrl:repo?.url?.url,
+            }
+        });
+
+        const projectImages = project?.data?.project_images?.map(image =>{
+            return image?.image?.url
+            
+        })
+
+        return{
+            id: project.uid,
+            projectName: RichText.asText(project?.data?.project_name),
+            thumbnail: project?.data?.thumbnail?.url,
+            description: RichText.asText(project?.data?.description),
+            techs,
+            repos,
+            projectImages,
+
+        }
+    });
 
     return {
         props: {
-            allProjects
+            projects
         },
-        revalidate: 60//24h
+        revalidate: 60 * 60 * 24 //24h
     }
 
 }

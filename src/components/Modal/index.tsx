@@ -32,7 +32,7 @@ export function Modal({ closeModal, modalInfo }: ModalProps) {
                 variants={cardAnimation}>
                 <header>
                     <div>
-                        <h1>{modalInfo.title}</h1>
+                        <h1>{modalInfo?.projectName}</h1>
                     </div>
                     <CgClose size={26} color="#EBE7D9" onClick={closeModal} />
                 </header>
@@ -42,11 +42,11 @@ export function Modal({ closeModal, modalInfo }: ModalProps) {
                     <strong>Ferramentas</strong>
                     <div className={styles.techs}>
                         {modalInfo.techs.map(tech => (
-                            <TechBadge key={tech.name} data={tech} />
+                            <TechBadge key={tech?.techName} data={tech} />
                         ))}
                     </div>
                 </section>
-                <Slider images={modalInfo.images} />
+                <Slider images={modalInfo?.projectImages} />
             </motion.div>
         </motion.div>
     )
