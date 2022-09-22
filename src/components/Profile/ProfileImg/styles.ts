@@ -13,10 +13,6 @@ export const Image = styled.img`
     z-index: 1;
     transition: 0.5s ease;
 
-    &:hover{
-        transform: translate(17px,21px);
-    }
-
     @media(max-width:1440px){
         width: 215px;
         height:220px;
@@ -55,15 +51,8 @@ export const Frame = styled.div`
     height:244px;
     border: 2px solid var(--secondary);
     border-radius: 3px;
-    background-color: transparent;
-
-    &:hover{
-        background-color: var(--secondary);
-        -webkit-transition: background-color 500ms ease-in;
-        -ms-transition: background-color 500ms ease-in;
-        transition: background-color 500ms ease-in;
-    }
-
+    background-color: var(--secondary);
+    
     @media(max-width:1440px){
     position: absolute;
     right: 269px;
