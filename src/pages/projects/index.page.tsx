@@ -80,7 +80,7 @@ export default function Projects({ projects, tags }) {
     } else {
       setAllProjects(projects)
     }
-  }, [selectedTags, documents])
+  }, [selectedTags, documents, projects])
 
   return (
     <S.Container>

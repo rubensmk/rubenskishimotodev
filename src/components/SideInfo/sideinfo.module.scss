@@ -1,137 +1,133 @@
-.social{
+.social {
+  height: 100%;
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 14rem;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+
+    svg {
+      transition: 0.4s ease;
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+    p {
+      left: 90px;
+      position: absolute;
+      margin-left: 0.5rem;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      width: 160px;
+      text-align: center;
+      background-color: var(--text);
+      color: var(--btn-background);
+      border-radius: 11px;
+      opacity: 0;
+    }
+    &:hover {
+      p {
+        position: block;
+        opacity: 1;
+        transition: opacity 0.7s linear;
+      }
+      svg {
+        transform: scale(1.4);
+        filter: brightness(1.5);
+      }
+    }
+  }
+}
+
+.email {
+  height: 100%;
+  a {
+    text-orientation: mixed;
+    writing-mode: vertical-lr;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.verticalLine {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  height: 24rem;
+  border-left: 3px solid var(--text);
+}
+
+@media (max-width: 768px) {
+  .social {
     height: 100%;
-    .list{
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height:11rem;
-        margin-bottom:1rem;
+    .list {
+      height: 10rem;
     }
 
-    a{
-        display:flex;
-        justify-content: flex-start;
-        margin-bottom: 0.5rem;
-
-        svg{
-            transition: 0.4s ease;
-        }
-
-        svg{
-            width: 2rem;
-            height: 2rem;
-        }
-        p{
-            left:90px;
-            position: absolute;
-            margin-left: 0.5rem;
-            padding: 0.5rem;
-            font-size: 0.8rem;
-            width: 160px;
-            text-align:center;
-            background-color:var(--text);
-            color: var(--btn-background);
-            border-radius: 11px;
-            opacity:0;
-        }
-        &:hover{
-
-            p{
-                position:block;
-                opacity: 1;
-                transition: opacity 0.7s linear;
-            }
-            svg{
-                transform: scale(1.4);
-                filter:brightness(1.5)
-            }
-        }
+    a {
+      svg {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+      p {
+        left: 60px;
+      }
     }
+  }
+  .email {
+    a {
+      font-size: 0.9rem;
+    }
+  }
+  .verticalLine {
+    height: 18rem;
+    border-left: 2px solid var(--text);
+  }
 }
 
-.email{
-    height: 100%;
-    a{
-        text-orientation: mixed;
-        writing-mode: vertical-lr;
-        margin-bottom: 0.5rem;
+@media (max-width: 425px) {
+  .social {
+    width: 100%;
+    padding-right: 2rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: row-reverse;
+    .list {
+      height: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.1rem;
     }
-}
 
-.verticalLine{
-    margin-left: 0.5rem;
-    height: 21rem;
-    border-left: 3px solid var(--text);
-}
-
-@media(max-width:768px){
-    .social{
-        height: 100%;
-        .list{
-            height: 10rem;
-        }
-    
-        a{
-            svg{
-                width: 1.6rem;
-                height: 1.6rem;
-            }
-            p{
-                left:60px;
-            }
-        }
+    a {
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      p {
+        visibility: hidden;
+      }
     }
-    .email{
-        
-        a{
-            font-size: 0.9rem;
-        }
+  }
+  .email {
+    height: 1rem;
+    a {
+      font-size: 0.8rem;
+      writing-mode: horizontal-tb;
+      margin-bottom: 0.5rem;
     }
-    .verticalLine{
-        height: 18rem;
-        border-left: 2px solid var(--text);
-    }
-    
-}
-
-@media(max-width:425px){
-    .social{
-        width: 100%;
-        padding-right: 2rem;
-        height: 2rem;
-        display: flex;
-        flex-direction:row-reverse;
-        .list{
-            height: 100%;
-            flex-direction: row;
-            justify-content:space-between;
-            align-items:center;
-            gap:1.1rem;
-        }
-    
-        a{
-            svg{
-                width: 1.5rem;
-                height: 1.5rem;
-            }
-            p{
-                visibility: hidden;
-                
-            }
-        }
-    }
-    .email{
-        height: 1rem;
-        a{
-            font-size: 0.8rem;
-            writing-mode: horizontal-tb;
-            margin-bottom: 0.5rem;
-        }
-    }
-    .verticalLine{
-        height: 0;
-        border:0;
-    }
-    
+  }
+  .verticalLine {
+    height: 0;
+    border: 0;
+  }
 }
