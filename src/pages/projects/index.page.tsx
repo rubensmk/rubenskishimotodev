@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Header } from '../../components/Header';
 import React, {  useState } from 'react';
-import * as S from '../../styles/pages/projectsStyles';
+import * as S from './styles';
 import { Modal } from '../../components/Modal';
 import { IProject, ProjectCard } from '../../components/ProjectCard';
 import Head from 'next/head';
@@ -11,7 +11,7 @@ import * as prismic from '@prismicio/client';
 import { RichText } from 'prismic-dom';
 
 
-export default function Projects({ projects }) {
+export default function Projects({ projects, tags }) {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [modalInfo, setModalInfo] = useState({} as IProject);
 
@@ -34,6 +34,12 @@ export default function Projects({ projects }) {
 
             <Header />
             <S.Content>
+                <S.FilterContainer>
+                {tags.map(tag => (
+                    <S.FilterTag key={tag}>{tag}</S.FilterTag>
+                ))}
+                </S.FilterContainer>
+                
                 <S.Projects>
                     {
                     projects?.map(project => (
@@ -51,6 +57,7 @@ export default function Projects({ projects }) {
 
 export const getStaticProps: GetStaticProps = async () => {
     const allProjects = await client.get({predicates: prismic.predicate.at('document.type', 'projects')});
+    const allTags = await client.getTags();
     
     const projects = allProjects.results.map(project =>{
         const techs = project.data.techs.map(tech => {
@@ -83,9 +90,15 @@ export const getStaticProps: GetStaticProps = async () => {
         }
     });
 
+
+    const tags = allTags.map(tag => {
+        return tag
+    });
+    
     return {
         props: {
-            projects
+            projects,
+            tags
         },
         revalidate: 60 * 60 * 24 //24h
     }

@@ -65,3 +65,30 @@ export const OtherButton = styled.a.attrs({
         filter:brightness(1.4)
     }
 `;
+
+export const FilterContainer = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    min-height: 6rem;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+    gap:1rem;
+`;
+
+export const FilterTag = styled.div`
+    min-width: 120px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight:600;
+    text-align: center;
+    background: linear-gradient(225deg, var(--secondary) 0%, #b31317 100%);
+    text-transform: uppercase;
+
+`;

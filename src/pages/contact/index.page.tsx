@@ -1,7 +1,7 @@
 import { Header } from '../../components/Header';
 import React from 'react';
 import Lottie from 'react-lottie';
-import * as S from '../../styles/pages/contactStyles';
+import * as S from './styles';
 import animationData from '../../../public/mailAnimation.json';
 import { SiLinkedin, SiGmail, SiWhatsapp, SiInstagram } from 'react-icons/si';
 import Head from 'next/head';
