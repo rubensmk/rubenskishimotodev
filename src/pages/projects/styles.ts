@@ -62,13 +62,15 @@ export const OtherButton = styled.a.attrs({
   text-align: center;
   padding: 0.7rem 0;
   margin-top: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 3px;
+
   -webkit-transform: skew(-10deg);
   transform: skew(-10deg);
   background: linear-gradient(225deg, var(--secondary) 0%, #b31317 100%);
 
-  transition: all 0.6s ease;
+  transition: all 0.4s linear;
 
   &:hover {
     -webkit-filter: brightness(1.4);
@@ -83,25 +85,53 @@ export const FilterContainer = styled.section`
   width: 80%;
   min-height: 6rem;
   flex-wrap: wrap;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   gap: 1rem;
+
+  @media (max-width: 320px) {
+    margin-bottom: 1rem;
+  }
+`
+
+export const FilterResults = styled.span`
+  margin-bottom: 4rem;
+  width: 80%;
+  padding: 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+    padding: 8px;
+    width: 70%;
+  }
+
+  @media (max-width: 320px) {
+    margin-bottom: 1rem;
+  }
 `
 
 export const FilterTag = styled.div<FilterTagProps>`
-  min-width: 120px;
-  height: 28px;
+  min-width: 128px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  border-radius: 16px;
+  border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
+
   background: linear-gradient(225deg, var(--secondary) 0%, #b31317 100%);
   text-transform: uppercase;
 
   cursor: pointer;
   border: 2px solid
     ${({ isSelected }) => (isSelected ? 'var(--text)' : '#b31317')};
+
+  @media (max-width: 320px) {
+    min-width: 248px;
+    height: 38px;
+  }
 `

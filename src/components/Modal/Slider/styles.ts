@@ -1,22 +1,17 @@
-import styled from 'styled-components';
-
+import styled from 'styled-components'
 
 export const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1.5rem;
-`;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+`
 
 export const Content = styled.div`
-    padding: 1rem;
+  width: 90%;
+  height: 420px;
 
-    width: 860px;
-    height: 480px;
-
-    @media(max-width: 425px) {
-        width: 520px;
-        height: 280px;
-
-    }
-`;
+  @media (max-width: 425px) {
+    height: 228px;
+  }
+`

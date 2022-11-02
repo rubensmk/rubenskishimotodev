@@ -12,6 +12,7 @@ import { RichText } from 'prismic-dom'
 import { useEffect } from 'react'
 import { usePrismicDocumentsBySomeTags } from '@prismicio/react'
 import { CubeSpinner } from 'react-spinners-kit'
+import { FaHashtag } from 'react-icons/fa'
 
 export default function Projects({ projects, tags }) {
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -97,10 +98,15 @@ export default function Projects({ projects, tags }) {
               onClick={() => handleSelectTag(tag)}
               key={tag}
             >
+              <FaHashtag />
               {tag}
             </S.FilterTag>
           ))}
         </S.FilterContainer>
+
+        <S.FilterResults>{`Resultados da busca: ${
+          !allProjects ? '...' : allProjects?.length
+        }`}</S.FilterResults>
 
         <S.Projects>
           {state === 'loading' ? (
