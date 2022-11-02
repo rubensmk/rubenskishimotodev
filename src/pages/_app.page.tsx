@@ -1,9 +1,13 @@
-import { AppProps } from 'next/app';
-import '../styles/global.scss';
-
+import { PrismicProvider } from '@prismicio/react'
+import { client } from '../services/prismic'
+import '../styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <PrismicProvider client={client}>
+      <Component {...pageProps} />
+    </PrismicProvider>
+  )
 }
 
 export default MyApp
