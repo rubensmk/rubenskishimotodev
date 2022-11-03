@@ -9,14 +9,87 @@ export const Content = styled.div`
   height: 100%;
 
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  padding: 4rem 0;
+`
+
+export const BlogCard = styled.div`
+  border-bottom: 2px solid rgb(255, 245, 208, 0.2);
+  width: 90%;
+  height: 12rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4rem;
+
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.5);
+  }
+
+  @media (max-width: 1024px) {
+    gap: 2rem;
+  }
 
   @media (max-width: 425px) {
-    flex-direction: column;
+    height: 8rem;
   }
-  @media (max-width: 320px) {
-    flex-direction: column;
-    margin-left: 0.8rem;
+`
+
+export const BlogThumbnail = styled.img`
+  border: 4px solid var(--text);
+  border-radius: 50%;
+  width: 9rem;
+  height: 9rem;
+
+  @media (max-width: 425px) {
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid var(--text);
   }
+`
+
+export const BlogDate = styled.span`
+  color: var(--text);
+
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
+`
+
+export const BlogTitle = styled.h1`
+  font-size: 2rem;
+  color: var(--text);
+  padding: 0.2rem 0;
+
+  @media (max-width: 1024px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
+`
+
+export const BlogSubtitle = styled.strong`
+  font-size: 1.5rem;
+  color: var(--text);
+  padding: 0 0.2rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 0.8rem;
+  }
+`
+
+export const BlogInfo = styled.div`
+  display: flex;
+  flex-direction: column;
 `
