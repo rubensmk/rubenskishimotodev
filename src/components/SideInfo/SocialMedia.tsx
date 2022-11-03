@@ -4,6 +4,7 @@ import {
   SiInstagram,
   SiGithub,
   SiDiscord,
+  SiWhatsapp,
 } from 'react-icons/si'
 import styles from './sideinfo.module.scss'
 
@@ -42,6 +43,10 @@ export function SocialMedia() {
         >
           <SiTwitter />
           <p className="tooltip">@rubenskishimoto</p>
+        </a>
+        <a href="https://wa.me/5591991278611" target="_blank" rel="noreferrer">
+          <SiWhatsapp />
+          <p className="tooltip">+55 91 99127-8611</p>
         </a>
       </div>
       <div className={styles.verticalLine} />
