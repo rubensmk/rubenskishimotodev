@@ -19,6 +19,7 @@ const techBadgeColor = {
   NextJS: ['#f5f5f5', '#111111'],
   ChakraUI: ['#3BC7BD', '#FFFFFF'],
   Sass: ['#F7F6F2', '#CB6699'],
+  TailwindCSS: ['#F7F6F2', '#3BC7BD'],
 }
 
 export function TechBadge({ data }: TechBadgeProps) {
