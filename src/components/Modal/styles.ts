@@ -177,3 +177,10 @@ export const LinkIcon = styled(BiLink)`
   width: 24px;
   height: 24px;
 `
+export const Loading = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

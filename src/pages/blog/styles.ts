@@ -79,6 +79,7 @@ export const BlogSubtitle = styled.strong`
   font-size: 1.5rem;
   color: var(--text);
   padding: 0 0.2rem;
+  font-weight: 500;
 
   @media (max-width: 1024px) {
     font-size: 1.4rem;
@@ -93,3 +94,10 @@ export const BlogInfo = styled.div`
   display: flex;
   flex-direction: column;
 `
+
+export const BlogContent = styled.main`
+  width: 100%;
+  height: 100%;
+`
+
+export const BlogContentTitle = styled.h1``

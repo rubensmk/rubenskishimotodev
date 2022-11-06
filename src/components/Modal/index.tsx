@@ -65,44 +65,52 @@ export function Modal({ closeModal, modalInfo }: ModalProps) {
   return (
     <S.Container initial="hidden" animate="visible" variants={bgAnimation}>
       <S.Content initial="hidden" animate="visible" variants={cardAnimation}>
-        <S.Header>
-          <div>
-            <S.ProjectName>{projectInfo?.name}</S.ProjectName>
-          </div>
-          <S.CloseModal onClick={closeModal} />
-        </S.Header>
-        <section>
-          <S.Title>Descrição</S.Title>
-          <S.Description>{projectInfo?.description}</S.Description>
+        {state === 'loading' ? (
+          <S.Loading>
+            <strong>Carregando...</strong>
+          </S.Loading>
+        ) : (
+          <>
+            <S.Header>
+              <div>
+                <S.ProjectName>{projectInfo?.name}</S.ProjectName>
+              </div>
+              <S.CloseModal onClick={closeModal} />
+            </S.Header>
+            <section>
+              <S.Title>Descrição</S.Title>
+              <S.Description>{projectInfo?.description}</S.Description>
 
-          <S.Title>Ferramentas</S.Title>
-          <S.Techs>
-            {projectInfo?.techs?.map((tech) => (
-              <TechBadge key={tech?.techName} data={tech} />
-            ))}
-          </S.Techs>
+              <S.Title>Ferramentas</S.Title>
+              <S.Techs>
+                {projectInfo?.techs?.map((tech) => (
+                  <TechBadge key={tech?.techName} data={tech} />
+                ))}
+              </S.Techs>
 
-          <S.Title>Repositórios</S.Title>
-          <S.RepoList>
-            {projectInfo?.repos.map((repo) => (
-              <S.RepoItem
-                key={repo.repoUrl}
-                href={repo.repoUrl}
-                target="_blank"
-              >
-                {repo.repoUrl.includes('rubensmk') ? (
-                  <S.RepoIcon />
-                ) : (
-                  <S.LinkIcon />
-                )}
-                <strong>
-                  {repo.repoUrl.split('rubensmk')[1] || repo.repoUrl}
-                </strong>
-              </S.RepoItem>
-            ))}
-          </S.RepoList>
-        </section>
-        <Slider images={projectInfo?.projectImages} />
+              <S.Title>Repositórios</S.Title>
+              <S.RepoList>
+                {projectInfo?.repos.map((repo) => (
+                  <S.RepoItem
+                    key={repo.repoUrl}
+                    href={repo.repoUrl}
+                    target="_blank"
+                  >
+                    {repo.repoUrl.includes('rubensmk') ? (
+                      <S.RepoIcon />
+                    ) : (
+                      <S.LinkIcon />
+                    )}
+                    <strong>
+                      {repo.repoUrl.split('rubensmk')[1] || repo.repoUrl}
+                    </strong>
+                  </S.RepoItem>
+                ))}
+              </S.RepoList>
+            </section>
+            <Slider images={projectInfo?.projectImages} />
+          </>
+        )}
       </S.Content>
     </S.Container>
   )
