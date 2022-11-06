@@ -20,7 +20,9 @@ const techBadgeColor = {
   ChakraUI: ['#3BC7BD', '#FFFFFF'],
   Sass: ['#F7F6F2', '#CB6699'],
   TailwindCSS: ['#F7F6F2', '#3BC7BD'],
-  Typescript: ['#F7F6F2', '#3178C6'],
+  Typescript: ['#007ACC', '#F7F6F2'],
+  CSS: ['#1572B6', '#F7F6F2'],
+  HTML: ['#E44D26', '#F7F6F2'],
 }
 
 export function TechBadge({ data }: TechBadgeProps) {
