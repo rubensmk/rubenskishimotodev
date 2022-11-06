@@ -24,10 +24,16 @@ export function Slider({ images }) {
 
   return (
     <Container>
-      {!(current === 0) && <FiArrowLeft size={34} onClick={handlePrevImg} />}
+      {!(current === 0) && (
+        <FiArrowLeft
+          size={34}
+          onClick={handlePrevImg}
+          style={{ cursor: 'pointer' }}
+        />
+      )}
       <Content key={String(new Date())}>
         <motion.img
-          src={images[current]}
+          src={images && images[current]}
           alt="image"
           width="100%"
           height="100%"
@@ -36,8 +42,12 @@ export function Slider({ images }) {
           variants={sliderAnimation}
         />
       </Content>
-      {!(current === images.length - 1) && (
-        <FiArrowRight size={34} onClick={handleNextImg} />
+      {!(current === images?.length - 1) && (
+        <FiArrowRight
+          size={34}
+          onClick={handleNextImg}
+          style={{ cursor: 'pointer' }}
+        />
       )}
     </Container>
   )

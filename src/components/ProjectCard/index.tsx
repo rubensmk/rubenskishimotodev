@@ -33,8 +33,8 @@ interface ProjectCardProps {
 export function ProjectCard({ handleOpenModal, project }: ProjectCardProps) {
   return (
     <S.Card key={project.id} onClick={() => handleOpenModal(project)}>
+      <S.Folder />
       <S.CardTitle>{project?.projectName}</S.CardTitle>
-      <S.CardImage src={project.thumbnail} alt="Project" />
     </S.Card>
   )
 }

@@ -5,7 +5,7 @@ import * as S from './styles'
 import { Modal } from '../../components/Modal'
 import { IProject, ProjectCard } from '../../components/ProjectCard'
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { client } from '../../services/prismic'
 import * as prismic from '@prismicio/client'
 import { RichText } from 'prismic-dom'
@@ -18,11 +18,11 @@ export default function Projects({ projects, tags }) {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [selectedTags, setSelectedTags] = useState([])
   const [allProjects, setAllProjects] = useState(projects)
-  const [modalInfo, setModalInfo] = useState({} as IProject)
+  const [modalInfo, setModalInfo] = useState(null)
   const [documents, { state }] = usePrismicDocumentsBySomeTags(selectedTags)
 
-  const handleOpenModal = (project: IProject) => {
-    setModalInfo(project)
+  const handleOpenModal = (projectID: string) => {
+    setModalInfo(projectID)
     setIsOpenModal(true)
   }
 
@@ -117,7 +117,7 @@ export default function Projects({ projects, tags }) {
             <>
               {allProjects?.map((project: IProject) => (
                 <ProjectCard
-                  handleOpenModal={() => handleOpenModal(project)}
+                  handleOpenModal={() => handleOpenModal(project.id)}
                   project={project}
                   key={project.id}
                 />
@@ -136,43 +136,16 @@ export default function Projects({ projects, tags }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const allProjects = await client.get({
     predicates: prismic.predicate.at('document.type', 'projects'),
   })
   const allTags = await client.getTags()
 
   const projects = allProjects.results.map((project) => {
-    const techs = project.data.techs.map((tech) => {
-      return {
-        techIconUrl: tech?.tech_icon?.url,
-        techName: RichText.asText(tech?.tech_name),
-      }
-    })
-
-    const repos = project?.data?.repo_url?.map((repo) => {
-      return {
-        repoUrl: repo?.url?.url,
-      }
-    })
-
-    const projectImages = project?.data?.project_images?.map((image) => {
-      return image?.image?.url
-    })
-
-    const projectTags = project?.tags?.map((tag) => {
-      return tag
-    })
-
     return {
       id: project.uid,
       projectName: RichText.asText(project?.data?.project_name),
-      thumbnail: project?.data?.thumbnail?.url,
-      description: RichText.asText(project?.data?.description),
-      techs,
-      repos,
-      projectImages,
-      projectTags,
     }
   })
 
@@ -185,6 +158,5 @@ export const getStaticProps: GetStaticProps = async () => {
       projects,
       tags,
     },
-    revalidate: 60 * 60 * 24, //24h
   }
 }

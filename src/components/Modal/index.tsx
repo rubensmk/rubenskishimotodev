@@ -1,53 +1,109 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from './modal.module.scss';
-import { motion } from 'framer-motion';
-import { CgClose } from 'react-icons/cg'
-import { IProject } from '../ProjectCard';
-import { TechBadge } from '../TechBadge';
-import { Slider } from './Slider/Slider';
+import React, { useEffect } from 'react'
+import * as S from './styles'
+import { TechBadge } from '../TechBadge'
+import { Slider } from './Slider/Slider'
+import { RichText } from 'prismic-dom'
+import { usePrismicDocumentByUID } from '@prismicio/react'
+import { useState } from 'react'
 
 interface ModalProps {
-    closeModal: () => void;
-    modalInfo: IProject
+  closeModal: () => void
+  modalInfo: string
 }
 
 export function Modal({ closeModal, modalInfo }: ModalProps) {
-    const cardAnimation = {
-        visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-        hidden: { opacity: 0, x: -100, transition: { duration: 0.5 } },
-    }
+  const [project, { state }] = usePrismicDocumentByUID('projects', modalInfo)
+  const [projectInfo, setProjectInfo] = useState(null)
 
-    const bgAnimation = {
-        visible: { opacity: 1, transition: { duration: 0.7 } },
-        hidden: { opacity: 0 },
+  const cardAnimation = {
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, x: -100, transition: { duration: 0.5 } },
+  }
+
+  const bgAnimation = {
+    visible: { opacity: 1, transition: { duration: 0.7 } },
+    hidden: { opacity: 0 },
+  }
+
+  useEffect(() => {
+    if (state === 'loaded') {
+      const techs = project.data.techs.map((tech) => {
+        return {
+          techIconUrl: tech?.tech_icon?.url,
+          techName: RichText.asText(tech?.tech_name),
+        }
+      })
+
+      const projectImages = project?.data?.project_images?.map((image) => {
+        return image.image.url
+      })
+
+      const repos = project?.data?.repo_url?.map((repo) => {
+        return {
+          repoUrl: repo?.url?.url,
+        }
+      })
+
+      setProjectInfo({
+        name: RichText.asText(project.data.project_name),
+        description: RichText.asText(project?.data?.description),
+        techs,
+        projectImages,
+        repos,
+      })
     }
-    return (
-        <motion.div className={styles.overlay}
-            initial="hidden"
-            animate="visible"
-            variants={bgAnimation}>
-            <motion.div className={styles.container}
-                initial="hidden"
-                animate="visible"
-                variants={cardAnimation}>
-                <header>
-                    <div>
-                        <h1>{modalInfo?.projectName}</h1>
-                    </div>
-                    <CgClose size={26} color="#EBE7D9" onClick={closeModal} />
-                </header>
-                <section>
-                    <strong>Descrição</strong>
-                    <p>{modalInfo.description}</p>
-                    <strong>Ferramentas</strong>
-                    <div className={styles.techs}>
-                        {modalInfo.techs.map(tech => (
-                            <TechBadge key={tech?.techName} data={tech} />
-                        ))}
-                    </div>
-                </section>
-                <Slider images={modalInfo?.projectImages} />
-            </motion.div>
-        </motion.div>
-    )
+  }, [
+    project?.data?.description,
+    project?.data?.project_images,
+    project?.data.project_name,
+    project?.data?.repo_url,
+    project?.data?.techs,
+    state,
+  ])
+
+  return (
+    <S.Container initial="hidden" animate="visible" variants={bgAnimation}>
+      <S.Content initial="hidden" animate="visible" variants={cardAnimation}>
+        <S.Header>
+          <div>
+            <S.ProjectName>{projectInfo?.name}</S.ProjectName>
+          </div>
+          <S.CloseModal onClick={closeModal} />
+        </S.Header>
+        <section>
+          <S.Title>Descrição</S.Title>
+          <S.Description>{projectInfo?.description}</S.Description>
+
+          <S.Title>Ferramentas</S.Title>
+          <S.Techs>
+            {projectInfo?.techs?.map((tech) => (
+              <TechBadge key={tech?.techName} data={tech} />
+            ))}
+          </S.Techs>
+
+          <S.Title>Repositórios</S.Title>
+          <S.RepoList>
+            {projectInfo?.repos.map((repo) => (
+              <S.RepoItem
+                key={repo.repoUrl}
+                href={repo.repoUrl}
+                target="_blank"
+              >
+                {repo.repoUrl.includes('rubensmk') ? (
+                  <S.RepoIcon />
+                ) : (
+                  <S.LinkIcon />
+                )}
+                <strong>
+                  {repo.repoUrl.split('rubensmk')[1] || repo.repoUrl}
+                </strong>
+              </S.RepoItem>
+            ))}
+          </S.RepoList>
+        </section>
+        <Slider images={projectInfo?.projectImages} />
+      </S.Content>
+    </S.Container>
+  )
 }

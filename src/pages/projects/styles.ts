@@ -32,15 +32,19 @@ export const Content = styled.div`
 export const Projects = styled.div`
   display: flex;
   height: 100%;
-  width: 100%;
+  width: 80%;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  row-gap: 2rem;
-  column-gap: 1rem;
+  row-gap: 4rem;
+
+  padding-bottom: 6rem;
 
   @media (max-width: 425px) {
-    row-gap: 4rem;
+    row-gap: 1rem;
+    width: 90%;
+
+    padding-bottom: 2rem;
   }
 `
 
@@ -88,6 +92,10 @@ export const FilterContainer = styled.section`
   margin-bottom: 2rem;
   gap: 1rem;
 
+  @media (max-width: 425px) {
+    width: 90%;
+  }
+
   @media (max-width: 320px) {
     margin-bottom: 1rem;
   }
@@ -101,13 +109,10 @@ export const FilterResults = styled.span`
   font-size: 1.1rem;
 
   @media (max-width: 425px) {
+    margin-bottom: 1rem;
     font-size: 1rem;
     padding: 8px;
     width: 70%;
-  }
-
-  @media (max-width: 320px) {
-    margin-bottom: 1rem;
   }
 `
 
@@ -129,6 +134,10 @@ export const FilterTag = styled.div<FilterTagProps>`
   cursor: pointer;
   border: 2px solid
     ${({ isSelected }) => (isSelected ? 'var(--text)' : '#b31317')};
+
+  @media (max-width: 425px) {
+    width: 132px;
+  }
 
   @media (max-width: 320px) {
     min-width: 248px;

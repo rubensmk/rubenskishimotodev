@@ -4,12 +4,12 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.5rem;
 `
 
 export const Content = styled.div`
-  width: 90%;
-  height: 420px;
+  width: 830px;
+  height: 450px;
+  padding: 24px 0;
 
   @media (max-width: 425px) {
     height: 228px;
