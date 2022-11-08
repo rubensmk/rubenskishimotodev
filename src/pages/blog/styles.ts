@@ -113,6 +113,14 @@ export const BlogContent = styled.main`
     align-items: center;
     font-size: 14px;
   }
+
+  @media (max-width: 768px) {
+    padding: 4rem;
+  }
+
+  @media (max-width: 425px) {
+    padding: 1rem 2rem;
+  }
 `
 export const LastUpdateIcon = styled(AiOutlineClockCircle)`
   width: 14px;
@@ -122,22 +130,74 @@ export const LastUpdateIcon = styled(AiOutlineClockCircle)`
 
 export const BlogContentTitle = styled.h1`
   font-size: 3rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+  @media (max-width: 425px) {
+    font-size: 1.4rem;
+  }
 `
 
 export const BlogContentSubTitle = styled.span`
   font-size: 2rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+  }
 `
 
 export const BlogHTMLContent = styled.div`
   padding: 2rem 0;
 
   p {
-    padding: 1rem 0;
-    width: 90%;
+    padding: 0.5rem 0;
+    width: 80%;
     font-size: 1.2rem;
   }
 
   h1 {
-    margin-top: 1.4rem;
+    margin-top: 1rem;
+  }
+
+  ul {
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0 1.5rem;
+  }
+
+  img {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 425px) {
+    img {
+      width: 100%;
+    }
+
+    h1 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      padding: 0.5rem 0;
+      width: 90%;
+      font-size: 1rem;
+    }
+
+    ul {
+      font-size: 1.2rem;
+    }
   }
 `

@@ -2,13 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import styles from './header.module.scss'
 import { ActiveLink } from '../ActiveLink'
-import { useRouter } from 'next/router'
 
 export function Header() {
-  const { asPath } = useRouter()
-
-  const isHomePage = asPath === '/'
-
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -16,7 +11,6 @@ export function Header() {
           <Link href="/">
             <a>{`{ rubenskishimoto.dev }`}</a>
           </Link>
-          {isHomePage && <p>Você já está na Home 😎</p>}
         </div>
       </div>
       <nav className={styles.menu}>
