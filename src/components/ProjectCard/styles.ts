@@ -3,7 +3,7 @@ import { FcFolder } from 'react-icons/fc'
 
 export const Card = styled.div`
   width: 220px;
-  height: 104px;
+  height: 92px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@ export const CardTitle = styled.strong`
   text-align: center;
 
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   border-radius: 2px;
   text-shadow: 0px 0px 25px rgba(58, 58, 58, 0.8);
   width: 100%;

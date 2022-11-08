@@ -7,7 +7,6 @@ import { client } from '../../services/prismic'
 import { RichText } from 'prismic-dom'
 
 export default function BlogContent({ blog }) {
-  console.log(blog)
   return (
     <S.Container>
       <Head>
@@ -17,7 +16,15 @@ export default function BlogContent({ blog }) {
       <Header />
 
       <S.BlogContent>
-        <S.BlogTitle>{blog.title}</S.BlogTitle>
+        <header>
+          <S.BlogContentTitle>{blog.title}</S.BlogContentTitle>
+          <S.BlogContentSubTitle>{blog.subtitle}</S.BlogContentSubTitle>
+          <section>
+            <S.LastUpdateIcon />
+            <span>{blog.last_update}</span>
+          </section>
+        </header>
+        <S.BlogHTMLContent dangerouslySetInnerHTML={{ __html: blog.content }} />
       </S.BlogContent>
     </S.Container>
   )

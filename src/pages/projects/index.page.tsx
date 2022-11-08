@@ -10,16 +10,15 @@ import { client } from '../../services/prismic'
 import * as prismic from '@prismicio/client'
 import { RichText } from 'prismic-dom'
 import { useEffect } from 'react'
-import { usePrismicDocumentsBySomeTags } from '@prismicio/react'
 import { CubeSpinner } from 'react-spinners-kit'
 import { FaHashtag } from 'react-icons/fa'
 
 export default function Projects({ projects, tags }) {
   const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [selectedTags, setSelectedTags] = useState([])
   const [allProjects, setAllProjects] = useState(projects)
   const [modalInfo, setModalInfo] = useState(null)
-  const [documents, { state }] = usePrismicDocumentsBySomeTags(selectedTags)
 
   const handleOpenModal = (projectID: string) => {
     setModalInfo(projectID)
@@ -42,46 +41,30 @@ export default function Projects({ projects, tags }) {
   }
 
   useEffect(() => {
+    async function getFilteredProjects() {
+      setIsLoading(true)
+      try {
+        const response = await client.getAllByEveryTag(selectedTags)
+        const filteredProjects = response.map((project) => {
+          return {
+            id: project.uid,
+            projectName: RichText.asText(project?.data?.project_name),
+          }
+        })
+        setAllProjects(filteredProjects)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
     if (selectedTags.length >= 1) {
-      const filteredProjects = documents?.results.map((project) => {
-        const techs = project.data.techs.map((tech) => {
-          return {
-            techIconUrl: tech?.tech_icon?.url,
-            techName: RichText.asText(tech?.tech_name),
-          }
-        })
-
-        const repos = project?.data?.repo_url?.map((repo) => {
-          return {
-            repoUrl: repo?.url?.url,
-          }
-        })
-
-        const projectImages = project?.data?.project_images?.map((image) => {
-          return image?.image?.url
-        })
-
-        const projectTags = project?.tags?.map((tag) => {
-          return tag
-        })
-
-        return {
-          id: project.uid,
-          projectName: RichText.asText(project?.data?.project_name),
-          thumbnail: project?.data?.thumbnail?.url,
-          description: RichText.asText(project?.data?.description),
-          techs,
-          repos,
-          projectImages,
-          projectTags,
-        }
-      })
-
-      setAllProjects(filteredProjects)
+      getFilteredProjects()
     } else {
       setAllProjects(projects)
     }
-  }, [selectedTags, documents, projects])
+  }, [projects, selectedTags])
 
   return (
     <S.Container>
@@ -109,7 +92,7 @@ export default function Projects({ projects, tags }) {
         }`}</S.FilterResults>
 
         <S.Projects>
-          {state === 'loading' ? (
+          {isLoading ? (
             <S.Loading>
               <CubeSpinner backColor="#EBE7D9" frontColor="#b31317" />
             </S.Loading>

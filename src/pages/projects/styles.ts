@@ -32,11 +32,11 @@ export const Content = styled.div`
 export const Projects = styled.div`
   display: flex;
   height: 100%;
-  width: 80%;
+  width: 90%;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  row-gap: 4rem;
+  row-gap: 2rem;
 
   padding-bottom: 6rem;
 
