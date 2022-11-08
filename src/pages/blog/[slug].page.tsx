@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import { Header } from '../../components/Header'
 import React from 'react'
 import * as S from './styles'
@@ -5,6 +6,7 @@ import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { client } from '../../services/prismic'
 import { RichText } from 'prismic-dom'
+import Link from 'next/link'
 
 export default function BlogContent({ blog }) {
   return (
@@ -16,6 +18,12 @@ export default function BlogContent({ blog }) {
       <Header />
 
       <S.BlogContent>
+        <Link href="/blog">
+          <S.goBack>
+            <S.goBackButton />
+            <p>Voltar</p>
+          </S.goBack>
+        </Link>
         <header>
           <S.BlogContentTitle>{blog.title}</S.BlogContentTitle>
           <S.BlogContentSubTitle>{blog.subtitle}</S.BlogContentSubTitle>

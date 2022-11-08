@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { AiOutlineClockCircle } from 'react-icons/ai'
+import { FiArrowLeft } from 'react-icons/fi'
 
 export const Container = styled.main`
   height: 85vh;
@@ -200,4 +201,18 @@ export const BlogHTMLContent = styled.div`
       font-size: 1.2rem;
     }
   }
+`
+export const goBack = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+
+  padding: 2rem 0;
+  cursor: pointer;
+`
+
+export const goBackButton = styled(FiArrowLeft)`
+  width: 1.5rem;
+  height: 1.5rem;
 `
