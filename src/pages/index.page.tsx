@@ -1,13 +1,11 @@
-import { Header } from '../components/Header';
-import { Button } from '../components/Button';
-import { ProfileImg } from '../components/Profile/ProfileImg';
-import { ProfileDescription } from '../components/Profile/ProfileDescription';
-import { SocialMedia } from '../components/SideInfo/SocialMedia';
-import { Email } from '../components/SideInfo/Email';
-import Head from 'next/head';
-import React from 'react';
-import styles from '../styles/home.module.scss';
-
+import { Header } from '../components/Header'
+import { ProfileImg } from '../components/Profile/ProfileImg'
+import { ProfileDescription } from '../components/Profile/ProfileDescription'
+import { SocialMedia } from '../components/SideInfo/SocialMedia'
+import Head from 'next/head'
+import React from 'react'
+import styles from '../styles/home.module.scss'
+import { Button } from '../components/Button'
 
 export default function Home() {
   return (
@@ -17,15 +15,15 @@ export default function Home() {
 
         <meta property="og:url" content="https://www.rubenskishimoto.dev/" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="{rubenskishimoto.dev}"
-        />
+        <meta property="og:title" content="{rubenskishimoto.dev}" />
         <meta
           property="og:description"
-          content="Site Portfólio"
+          content="Rubens Mititaka Kishimoto Dev"
         />
-        <meta property="og:image" content={"https://i.ibb.co/7nGWq71/portfolio-1.png"} />
+        <meta
+          property="og:image"
+          content={'https://i.ibb.co/7nGWq71/portfolio-1.png'}
+        />
       </Head>
 
       <Header />
@@ -33,15 +31,13 @@ export default function Home() {
         <SocialMedia />
         <section className={styles.profile}>
           <div className={styles.info}>
-            <ProfileDescription />
             <ProfileImg />
+            <ProfileDescription />
           </div>
-          <div className={styles.navigateOptions}>
-            <Button route="/contact">Contato</Button>
-            <Button route="/projects" color="gray">Projetos</Button>
-          </div>
+          {/* <Button route="https://drive.google.com/file/d/1QeOOVON96ygeMiELfTzj9JpeSZkT5DZ_/view">
+            Currículo
+          </Button> */}
         </section>
-        <Email />
       </main>
     </>
   )

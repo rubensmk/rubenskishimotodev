@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import styles from './header.module.scss'
-import { ActiveLink } from '../ActiveLink'
+import NavMenu from '../NavMenu'
 
 export function Header() {
   return (
@@ -14,37 +14,7 @@ export function Header() {
         </div>
       </div>
       <nav className={styles.menu}>
-        <ul>
-          <li>
-            <ActiveLink href="/" activeClassName={styles.active}>
-              <a>Perfil</a>
-            </ActiveLink>
-          </li>
-          <li>
-            <ActiveLink href="/projects" activeClassName={styles.active}>
-              <a>Projetos</a>
-            </ActiveLink>
-          </li>
-          <li>
-            <ActiveLink href="/blog" activeClassName={styles.active}>
-              <a>Blog</a>
-            </ActiveLink>
-          </li>
-          <li>
-            <ActiveLink href="/contact" activeClassName={styles.active}>
-              <a>Contato</a>
-            </ActiveLink>
-          </li>
-        </ul>
-        <button>
-          <a
-            href="https://drive.google.com/file/d/1QeOOVON96ygeMiELfTzj9JpeSZkT5DZ_/view"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Currículo
-          </a>
-        </button>
+        <NavMenu />
       </nav>
     </header>
   )
