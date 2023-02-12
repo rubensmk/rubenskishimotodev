@@ -27,7 +27,6 @@ export const Image = styled.img`
   @media (max-width: 768px) {
     width: 180px;
     height: 180px;
-    border-radius: 50%;
     border: 2px solid var(--btn-text);
 
     &:hover {
@@ -36,9 +35,10 @@ export const Image = styled.img`
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 628px) {
     width: 150px;
     height: 150px;
+    margin-top: 24px;
   }
 `
 

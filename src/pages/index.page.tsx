@@ -6,6 +6,7 @@ import Head from 'next/head'
 import React from 'react'
 import styles from '../styles/home.module.scss'
 import { Button } from '../components/Button'
+import { FiDownload } from 'react-icons/fi'
 
 export default function Home() {
   return (
@@ -31,12 +32,17 @@ export default function Home() {
         <SocialMedia />
         <section className={styles.profile}>
           <div className={styles.info}>
-            <ProfileImg />
+            <div className={styles.avatar}>
+              <ProfileImg />
+              <Button route="https://drive.google.com/file/d/1QeOOVON96ygeMiELfTzj9JpeSZkT5DZ_/view">
+                <div className={styles.resumeButton}>
+                  <FiDownload />
+                  <span>Currículo</span>
+                </div>
+              </Button>
+            </div>
             <ProfileDescription />
           </div>
-          {/* <Button route="https://drive.google.com/file/d/1QeOOVON96ygeMiELfTzj9JpeSZkT5DZ_/view">
-            Currículo
-          </Button> */}
         </section>
       </main>
     </>

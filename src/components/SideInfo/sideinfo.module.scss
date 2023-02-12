@@ -65,35 +65,7 @@
   border-left: 3px solid var(--text);
 }
 
-@media (max-width: 768px) {
-  .social {
-    height: 100%;
-    .list {
-      height: 10rem;
-    }
-
-    a {
-      svg {
-        width: 1.6rem;
-        height: 1.6rem;
-      }
-      p {
-        left: 60px;
-      }
-    }
-  }
-  .email {
-    a {
-      font-size: 0.9rem;
-    }
-  }
-  .verticalLine {
-    height: 18rem;
-    border-left: 2px solid var(--text);
-  }
-}
-
-@media (max-width: 425px) {
+@media (max-width: 900px) {
   .social {
     width: 100%;
     padding-right: 2rem;
@@ -110,8 +82,8 @@
 
     a {
       svg {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.8rem;
+        height: 1.8rem;
       }
       p {
         visibility: hidden;
@@ -129,5 +101,16 @@
   .verticalLine {
     height: 0;
     border: 0;
+  }
+}
+
+@media (max-width: 628px) {
+  .social {
+    a {
+      svg {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+    }
   }
 }
