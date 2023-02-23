@@ -13,6 +13,7 @@ export const Image = styled.img`
   z-index: 1;
   transition: 0.5s ease;
   border-radius: 50%;
+  border: 2px solid var(--btn-text);
 
   @media (max-width: 1440px) {
     width: 215px;
