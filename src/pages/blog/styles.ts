@@ -175,6 +175,14 @@ export const BlogHTMLContent = styled.div`
     width: 80%;
   }
 
+  pre {
+    background-color: #1d2230;
+    font-size: 1rem;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 0.5rem;
+  }
+
   @media (max-width: 768px) {
     img {
       width: 90%;
