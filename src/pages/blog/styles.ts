@@ -173,6 +173,7 @@ export const BlogHTMLContent = styled.div`
 
   img {
     width: 80%;
+    height: 80%;
   }
 
   pre {
