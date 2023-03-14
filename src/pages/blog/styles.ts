@@ -19,13 +19,15 @@ export const Content = styled.div`
 
 export const BlogCard = styled.div`
   border-bottom: 2px solid rgb(255, 245, 208, 0.2);
-  width: 90%;
+  width: 100%;
   height: 12rem;
 
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
+
+  padding: 1rem;
 
   cursor: pointer;
 
@@ -33,12 +35,8 @@ export const BlogCard = styled.div`
     filter: brightness(1.5);
   }
 
-  @media (max-width: 1024px) {
-    gap: 2rem;
-  }
-
   @media (max-width: 425px) {
-    height: 8rem;
+    height: 10rem;
   }
 `
 
@@ -182,6 +180,11 @@ export const BlogHTMLContent = styled.div`
     padding: 1rem;
     align-items: center;
     border-radius: 0.5rem;
+    white-space: pre-wrap; /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
   }
 
   @media (max-width: 768px) {
