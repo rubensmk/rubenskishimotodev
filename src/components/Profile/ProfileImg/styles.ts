@@ -8,12 +8,12 @@ export const ImageContent = styled.div`
 
 export const Image = styled.img`
   border-radius: 3px;
-  width: 264px;
-  height: 264px;
+  width: 248px;
+  height: 248px;
   z-index: 1;
   transition: 0.5s ease;
   border-radius: 50%;
-  border: 2px solid var(--btn-text);
+  border: 5px solid var(--btn-text);
 
   @media (max-width: 1440px) {
     width: 215px;
