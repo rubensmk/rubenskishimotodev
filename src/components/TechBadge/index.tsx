@@ -10,6 +10,7 @@ interface TechBadgeProps {
 const techBadgeColor = {
   ReactJS: ['#F7F6F2', '#48CEF6'],
   'React Native': ['#212121', '#f5f5f5'],
+  'Ruby on Rails': ['#FFFFFF', '#D40504'],
   Electron: ['#212121', '#f5f5f5'],
   NodeJS: ['#3d3d3d', '#FFFFFF'],
   Docker: ['#49F7A3', '#423F3E'],
