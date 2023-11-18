@@ -8,28 +8,32 @@ export const ImageContent = styled.div`
 
 export const Image = styled.img`
   border-radius: 3px;
-  width: 248px;
-  height: 248px;
+  width: 324px;
+  height: 424px;
   z-index: 1;
   transition: 0.5s ease;
-  border-radius: 50%;
-  border: 5px solid var(--btn-text);
 
   @media (max-width: 1440px) {
-    width: 215px;
-    height: 220px;
+    width: 300px;
+    height: 400px;
   }
 
-  @media (max-width: 1024px) {
-    width: 215px;
-    height: 220px;
+  @media (max-width: 1284px) {
+    width: 240px;
+    height: 320px;
+  }
+
+  @media (max-width: 1088px) {
+    width: 214px;
+    height: 290px;
+  }
+
+  @media (max-width: 894px) {
+    width: 280px;
+    height: 360px;
   }
 
   @media (max-width: 768px) {
-    width: 180px;
-    height: 180px;
-    border: 2px solid var(--btn-text);
-
     &:hover {
       transform: translateY(-12px);
       border-color: var(--secondary);
@@ -37,8 +41,6 @@ export const Image = styled.img`
   }
 
   @media (max-width: 628px) {
-    width: 150px;
-    height: 150px;
     margin-top: 24px;
   }
 `
