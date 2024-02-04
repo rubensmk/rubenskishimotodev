@@ -34,7 +34,7 @@ export default function Home() {
           <div className={styles.info}>
             <div className={styles.avatar}>
               <ProfileImg />
-              <Button route="https://drive.google.com/file/d/1QeOOVON96ygeMiELfTzj9JpeSZkT5DZ_/view">
+              <Button route="https://drive.google.com/file/d/1vYHcO8HSwziqLFu4iKFvC6afQA7DvsUq/view?usp=drive_link">
                 <div className={styles.resumeButton}>
                   <FiDownload />
                   <span>Currículo</span>
